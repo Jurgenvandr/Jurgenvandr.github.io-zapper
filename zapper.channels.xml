@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channels>
+  <!-- xmltv_id = the channel key used by Zapper (index.html) -->
+  <channel site="pickx.be" site_id="UID50037" lang="nl" xmltv_id="vrt1">VRT 1</channel>
+  <channel site="pickx.be" site_id="UID50084" lang="nl" xmltv_id="canvas">VRT Canvas</channel>
+  <channel site="pickx.be" site_id="UID50310" lang="nl" xmltv_id="ketnet">Ketnet</channel>
+  <channel site="pickx.be" site_id="UID50083" lang="nl" xmltv_id="play">Play</channel>
+  <channel site="pickx.be" site_id="UID50066" lang="nl" xmltv_id="playfictie">Play Fictie</channel>
+  <channel site="pickx.be" site_id="UID0146" lang="nl" xmltv_id="playactie">Play Actie</channel>
+  <channel site="pickx.be" site_id="UID2293" lang="nl" xmltv_id="playreality">Play Reality</channel>
+  <channel site="pickx.be" site_id="UID50040" lang="nl" xmltv_id="vtm">VTM</channel>
+  <channel site="pickx.be" site_id="UID50044" lang="nl" xmltv_id="vtm2">VTM 2</channel>
+  <channel site="pickx.be" site_id="UID50082" lang="nl" xmltv_id="vtm3">VTM 3</channel>
+  <channel site="pickx.be" site_id="UID50301" lang="nl" xmltv_id="vtm4">VTM 4</channel>
+  <channel site="tvgids.nl" site_id="npo1" lang="nl" xmltv_id="npo1">NPO 1</channel>
+  <channel site="tvgids.nl" site_id="npo2" lang="nl" xmltv_id="npo2">NPO 2</channel>
+  <channel site="tvgids.nl" site_id="npo3" lang="nl" xmltv_id="npo3">NPO 3</channel>
+  <channel site="tvgids.nl" site_id="rtl4" lang="nl" xmltv_id="rtl4">RTL 4</channel>
+  <channel site="tvgids.nl" site_id="rtl5" lang="nl" xmltv_id="rtl5">RTL 5</channel>
+  <channel site="tvgids.nl" site_id="rtl7" lang="nl" xmltv_id="rtl7">RTL 7</channel>
+  <channel site="tvgids.nl" site_id="rtl8" lang="nl" xmltv_id="rtl8">RTL 8</channel>
+  <channel site="tvgids.nl" site_id="rtlz" lang="nl" xmltv_id="rtlz">RTL Z</channel>
+  <channel site="tvgids.nl" site_id="sbs6" lang="nl" xmltv_id="sbs6">SBS6</channel>
+  <channel site="tvgids.nl" site_id="veronica" lang="nl" xmltv_id="veronica">Veronica</channel>
+  <channel site="tvgids.nl" site_id="net5" lang="nl" xmltv_id="net5">NET5</channel>
+  <channel site="webtv.delta.nl" site_id="54" lang="nl" xmltv_id="sbs9">SBS9</channel>
+</channels>
