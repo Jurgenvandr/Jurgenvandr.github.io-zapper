@@ -1,0 +1,55 @@
+name: Update TV guide
+
+on:
+  schedule:
+    - cron: '0 3 * * *'    # every day ~05:00 Belgian time
+    - cron: '0 14 * * *'   # and again in the afternoon, to catch schedule changes
+  workflow_dispatch:        # lets you start it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tv-guide
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Download the guide grabber (iptv-org/epg)
+        run: |
+          git clone --depth 1 https://github.com/iptv-org/epg.git ../epg
+          cd ../epg && npm install --no-audit --no-fund
+
+      - name: Find the Zapper files (in the epg folder or in the main folder)
+        run: |
+          if [ -f epg/zapper.channels.xml ]; then D=epg; else D=.; fi
+          echo "ZDIR=$D" >> $GITHUB_ENV
+          ls -la $D/zapper.channels.xml $D/convert.mjs
+
+      - name: Grab today and tomorrow
+        run: |
+          cd ../epg
+          npm run grab --- --channels=$GITHUB_WORKSPACE/$ZDIR/zapper.channels.xml \
+            --output=$GITHUB_WORKSPACE/guide.xml --days=2 --maxConnections=4 --timeout=20000
+
+      - name: Convert to guide.json
+        run: node $ZDIR/convert.mjs guide.xml guide.json
+
+      - name: Save guide.json
+        run: |
+          rm -f guide.xml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add guide.json
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Update TV guide"
+          git push
